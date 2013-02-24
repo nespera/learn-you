@@ -3,7 +3,9 @@ module Numbers
 ) where
 
 numberToText :: Int -> String
-numberToText x = smallNumToText x
+numberToText x  
+    | x < 0 = "Minus " ++ numberToText (-x)
+    | otherwise = smallNumToText x
 
 smallNumToText :: Int -> String
 smallNumToText x = ["Zero", "One", "Two", "Three", "Four", "Five", 
