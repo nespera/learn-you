@@ -9,8 +9,8 @@ numberToText x
 
 posNumToText :: Int -> String
 posNumToText x
-    | x < 20 = smallNumToText x
-    | otherwise = doubleDigitToText x
+    | x < 100 = doubleDigitToText x
+    | otherwise = "Too Big"
 
 smallNumToText :: Int -> String
 smallNumToText x = ["Zero", "One", "Two", "Three", "Four", "Five", 
@@ -20,6 +20,7 @@ smallNumToText x = ["Zero", "One", "Two", "Three", "Four", "Five",
 
 doubleDigitToText :: Int -> String
 doubleDigitToText x
+    | x < 20 = smallNumToText x
     | units == 0 = tensToText tens
     | otherwise = (tensToText tens) ++ " " ++ (smallNumToText units)
     where tens = x `div` 10
