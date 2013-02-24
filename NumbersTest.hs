@@ -6,6 +6,7 @@ conversionTest d w = TestCase (assertEqual describe w (numberToText d))
   where describe = "numberToText " ++ (show d) 
 
 tests = TestList [conversionTest d w | (d,w) <- [
+                    ((-67), "Minus Sixty Seven"),
                     ((-50), "Minus Fifty"),
                     ((-14), "Minus Fourteen"),
                     ((-8), "Minus Eight"),
@@ -16,5 +17,6 @@ tests = TestList [conversionTest d w | (d,w) <- [
                     (13, "Thirteen"),
                     (20, "Twenty"),
                     (30, "Thirty"),
+                    (43, "Forty Three"),
                     (70, "Seventy")
                  ]]
