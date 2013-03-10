@@ -9,5 +9,6 @@ subsetTestCase list target expected
 tests = TestList [subsetTestCase l t e | (l,t,e) <- [ 
     ([], 10, []), 
     ([2,3], 10, []), 
-    ([-1,10], 10, []) 
+    ([-1,10], 10, []),
+    ([0,8], 8, []) 
   ]] 

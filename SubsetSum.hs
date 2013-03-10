@@ -5,5 +5,5 @@ module SubsetSum
 sumFrom :: [Int] -> Int -> [[Int]]
 sumFrom list target 
   | list == [] = []
-  | sum list < target = []
   | any (<= 0) list = []
+  | sum list < target = []
