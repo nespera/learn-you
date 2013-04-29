@@ -1,4 +1,5 @@
 import Data.Ratio
+import Data.List
 
 newtype Prob a = Prob { getProb :: [(a, Rational)] } deriving Show
 
@@ -16,8 +17,7 @@ instance Monad Prob where
 
 coal :: (Eq a) => [(a, Rational)] -> [(a, Rational)]
 coal [] = []
-coal whole@((a,_):_) = [(a,summed)] ++ coal(nomatch)
-    where match = filter((==a).fst) whole
-          nomatch = filter((/=a).fst) whole
-          summed = foldl (+) 0 (fmap snd match)
+coal whole@((a,_):_) = (a,summed) : coal(nomatch)
+    where (match, nomatch) = partition ((==a).fst) whole
+          summed = sum (fmap snd match)
 
