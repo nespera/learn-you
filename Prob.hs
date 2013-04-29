@@ -13,3 +13,11 @@ instance Monad Prob where
     return x = Prob [(x,1%1)]  
     m >>= f = flatten (fmap f m)  
     fail _ = Prob []
+
+coal :: (Eq a) => [(a, Rational)] -> [(a, Rational)]
+coal [] = []
+coal whole@((a,_):_) = [(a,summed)] ++ coal(nomatch)
+    where match = filter((==a).fst) whole
+          nomatch = filter((/=a).fst) whole
+          summed = foldl (+) 0 (fmap snd match)
+

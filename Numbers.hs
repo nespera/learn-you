@@ -12,12 +12,6 @@ posNumToText x
     | x < 100 = doubleDigitToText x
     | otherwise = "Too Big"
 
-smallNumToText :: Int -> String
-smallNumToText x = ["Zero", "One", "Two", "Three", "Four", "Five", 
-                  "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve",
-                  "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
-                  "Eighteen", "Nineteen"] !! x
-
 doubleDigitToText :: Int -> String
 doubleDigitToText x
     | x < 20 = smallNumToText x
@@ -29,3 +23,9 @@ doubleDigitToText x
 tensToText :: Int -> String
 tensToText x = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", 
                  "Seventy", "Eighty", "Ninety"] !! x
+
+smallNumToText :: Int -> String
+smallNumToText x = ["Zero", "One", "Two", "Three", "Four", "Five", 
+                  "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve",
+                  "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
+                  "Eighteen", "Nineteen"] !! x
